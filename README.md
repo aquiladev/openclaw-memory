@@ -20,18 +20,18 @@ A complete reference covering:
 - **Diagnostics** — using `/context list`, `/status`, `/compact`, and `/verbose`
 - **Memory hygiene** — daily, weekly, and git backup practices
 
-### [Claude Code Skill](skill/)
+### [Claude Code Skill](skills/)
 
 A ready-to-use skill for Claude Code that helps you manage OpenClaw memory:
 
 ```
-skill/
+skills/
 ├── SKILL.md                        # Main skill instructions
 └── references/
     └── config-examples.md          # Copy-paste config templates
 ```
 
-**To install:** Copy the `skill/` directory into your Claude Code skills location (e.g., `~/.claude/skills/openclaw-memory/` or your project's `.claude/skills/` directory).
+**To install:** Copy the `skills/` directory into your Claude Code skills location (e.g., `~/.claude/skills/openclaw-memory/` or your project's `.claude/skills/` directory).
 
 The skill triggers whenever you mention memory issues, compaction, context loss, bootstrap files, or any OpenClaw memory-related topic. It guides Claude through diagnostics, configuration, and best practices.
 
@@ -50,7 +50,9 @@ If you read nothing else, do these three things:
            "reserveTokensFloor": 40000,
            "memoryFlush": {
              "enabled": true,
-             "softThresholdTokens": 4000
+             "softThresholdTokens": 4000,
+             "systemPrompt": "Session nearing compaction. Store durable memories now.",
+             "prompt": "Write any lasting notes to memory/YYYY-MM-DD.md; reply with NO_REPLY if nothing to store."
            }
          }
        }
